@@ -470,11 +470,11 @@ class AlgoTrainer(BaseAlgo):
                     "pesudo_q_target": pesudo_q_target.mean(),
                     "actor_q": q_new_actions.mean(),
                     # loss
-                    "q1_loss": qf1_loss.item(),
-                    "q2_loss": qf2_loss.item(),
-                    "policy_loss": policy_loss.item(),
-                    "vae_loss": vae_loss.item(),
-                    "disc_loss": lossD.item(),
+                    "loss/q1": qf1_loss.item(),
+                    "loss/q2": qf2_loss.item(),
+                    "loss/policy": policy_loss.item(),
+                    "loss/vae": vae_loss.item(),
+                    "loss/disc": lossD.item(),
                     # disc prob
                     "disc_real": disc_real.mean(),
                     "disc_fake": disc_fake.mean(),
