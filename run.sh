@@ -1,4 +1,9 @@
-python train_d4rl.py --algo_name=mcq_bc --task walker2d-medium-v2 --seed 0 --lam 0.95
-python train_d4rl.py --algo_name=mcq_bc --task walker2d-medium-v2 --seed 0 --lam 0.98
-python train_d4rl.py --algo_name=mcq_bc --task halfcheetah-medium-v2 --seed 0 --lam 0.9
-python train_d4rl.py --algo_name=mcq_bc --task hopper-medium-v2 --seed 0 --lam 0.9
+python train_d4rl.py --algo_name=mcq --task walker2d-medium-v2 --seed 0 --lam 0.9
+python train_d4rl.py --algo_name=mcq --task hopper-medium-v2 --seed 0 --lam 0.7
+python train_d4rl.py --algo_name=mcq --task halfcheetah-medium-v2 --seed 0 --lam 0.95
+python train_d4rl.py --algo_name=mcq --task walker2d-medium-replay-v2 --seed 0 --lam 0.9
+python train_d4rl.py --algo_name=mcq --task hopper-medium-replay-v2 --seed 0 --lam 0.9
+python train_d4rl.py --algo_name=mcq --task halfcheetah-medium-replay-v2 --seed 0 --lam 0.95
+python train_d4rl.py --algo_name=mcq --task walker2d-medium-expert-v2 --seed 0 --lam 0.8
+python train_d4rl.py --algo_name=mcq --task hopper-medium-expert-v2 --seed 0 --lam 0.5
+python train_d4rl.py --algo_name=mcq --task halfcheetah-medium-expert-v2 --seed 0 --lam 0.7
