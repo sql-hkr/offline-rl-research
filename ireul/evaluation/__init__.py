@@ -74,15 +74,7 @@ class CallBackFunctionList(CallBackFunction):
 
 
 class OnlineCallBackFunction(CallBackFunction):
-    def initialize(
-        self,
-        train_buffer,
-        val_buffer,
-        config,
-        number_of_runs=10,
-        *args,
-        **kwargs
-    ):
+    def initialize(self, train_buffer, val_buffer, config, *args, **kwargs):
         self.task = config["task"]
         self.env = wrap_env(
             get_env(self.task),
@@ -91,7 +83,11 @@ class OnlineCallBackFunction(CallBackFunction):
             config["reward_scale"],
         )
         self.is_initialized = True
-        self.number_of_runs = number_of_runs
+
+        if "number_of_runs" in config:
+            self.number_of_runs = config["number_of_runs"]
+        else:
+            self.number_of_runs = 10
 
         self.d4rl_eval = d4rl_eval_fn(self.env, self.number_of_runs)
 

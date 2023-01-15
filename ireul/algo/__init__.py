@@ -5,7 +5,15 @@ from loguru import logger
 warnings.filterwarnings("ignore")
 
 
-from ireul.algo.modelfree import bc, cql, mcq, mcq_bc, mcq_iql, mcq_vaegan
+from ireul.algo.modelfree import (
+    bc,
+    cql,
+    mcq,
+    mcq_bc,
+    mcq_iql,
+    mcq_vaegan,
+    scql,
+)
 from ireul.config.algo import (
     bc_config,
     cql_config,
@@ -13,6 +21,7 @@ from ireul.config.algo import (
     mcq_config,
     mcq_iql_config,
     mcq_vaegan_config,
+    scql_config,
 )
 from ireul.utils.config import parse_config
 
@@ -23,6 +32,7 @@ algo_dict = {
     "mcq_bc": {"algo": mcq_bc, "config": mcq_bc_config},
     "mcq_iql": {"algo": mcq_iql, "config": mcq_iql_config},
     "mcq_vaegan": {"algo": mcq_vaegan, "config": mcq_vaegan_config},
+    "dcq": {"algo": scql, "config": scql_config},
 }
 
 
