@@ -32,7 +32,7 @@ algo_dict = {
     "mcq_bc": {"algo": mcq_bc, "config": mcq_bc_config},
     "mcq_iql": {"algo": mcq_iql, "config": mcq_iql_config},
     "mcq_vaegan": {"algo": mcq_vaegan, "config": mcq_vaegan_config},
-    "dcq": {"algo": scql, "config": scql_config},
+    "scql": {"algo": scql, "config": scql_config},
 }
 
 
