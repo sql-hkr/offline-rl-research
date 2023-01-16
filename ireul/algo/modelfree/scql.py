@@ -169,9 +169,8 @@ class AlgoTrainer(BaseAlgo):
                 action = tanh_normal.sample()
         return action, log_prob
 
-    def _train(self, batch):
+    def _train(self, batch, steps_per_epoch):
         self._current_epoch += 1
-        # batch = to_torch(batch, torch.float, device=self.args["device"])
         batch = batch.to_torch(device=self.device)
         rewards = batch.rew
         terminals = batch.done
@@ -269,14 +268,17 @@ class AlgoTrainer(BaseAlgo):
             self.critic2_target, self.critic2, self.args["soft_target_tau"]
         )
 
-        if self._current_epoch % 500 == 0:
+        if self._current_epoch % int(steps_per_epoch / 2) == 0:
             wandb.log(
                 {
                     "q1_pred": q1_pred.mean(),
+                    "q2_pred": q2_pred.mean(),
                     "q_target": q_target.mean(),
                     "actor_q": q_new_actions.mean(),
+                    "alpha": alpha,
                     "loss/q1": qf1_loss,
                     "loss/q2": qf2_loss,
+                    "loss/alpha": alpha_loss,
                     "loss/policy": policy_loss,
                 },
                 step=self._current_epoch,
@@ -287,9 +289,6 @@ class AlgoTrainer(BaseAlgo):
     def get_model(self):
         return self.actor
 
-    # def save_model(self, model_save_path):
-    #    torch.save(self.actor, model_save_path)
-
     def get_policy(self):
         return self.actor
 
@@ -298,7 +297,7 @@ class AlgoTrainer(BaseAlgo):
         for epoch in range(1, self.args["max_epoch"] + 1):
             for step in range(1, self.args["steps_per_epoch"] + 1):
                 train_data = train_buffer.sample(self.args["batch_size"])
-                self._train(train_data)
+                self._train(train_data, self.args["steps_per_epoch"])
 
             res = callback_fn(self.get_policy())
 
