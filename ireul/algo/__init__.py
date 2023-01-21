@@ -13,6 +13,7 @@ from ireul.algo.modelfree import (
     mcq_iql,
     mcq_vaegan,
     scql,
+    scql_gan,
     scql_iql,
 )
 from ireul.config.algo import (
@@ -23,6 +24,7 @@ from ireul.config.algo import (
     mcq_iql_config,
     mcq_vaegan_config,
     scql_config,
+    scql_gan_config,
     scql_iql_config,
 )
 from ireul.utils.config import parse_config
@@ -36,6 +38,7 @@ algo_dict = {
     "mcq_vaegan": {"algo": mcq_vaegan, "config": mcq_vaegan_config},
     "scql": {"algo": scql, "config": scql_config},
     "scql_iql": {"algo": scql_iql, "config": scql_iql_config},
+    "scql_gan": {"algo": scql_gan, "config": scql_gan_config},
 }
 
 
