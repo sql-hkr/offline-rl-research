@@ -34,10 +34,6 @@ from ireul.utils.config import parse_config
 algo_dict = {
     "bc": {"algo": bc, "config": bc_config},
     "cql": {"algo": cql, "config": cql_config},
-    "mcq": {"algo": mcq, "config": mcq_config},
-    "mcq_bc": {"algo": mcq_bc, "config": mcq_bc_config},
-    "mcq_iql": {"algo": mcq_iql, "config": mcq_iql_config},
-    "mcq_vaegan": {"algo": mcq_vaegan, "config": mcq_vaegan_config},
     "scql": {"algo": scql, "config": scql_config},
     "scql_iql": {"algo": scql_iql, "config": scql_iql_config},
     "scql_gan": {"algo": scql_gan, "config": scql_gan_config},
