@@ -8,10 +8,6 @@ warnings.filterwarnings("ignore")
 from ireul.algo.modelfree import (
     bc,
     cql,
-    mcq,
-    mcq_bc,
-    mcq_iql,
-    mcq_vaegan,
     scql,
     scql_d,
     scql_gan,
